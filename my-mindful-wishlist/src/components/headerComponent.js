@@ -1,7 +1,7 @@
 
 import banner from '../images/banner.jpg'
 
-function headerComponent() {
+const HeaderComponent = (props) => {
   return (
     <div
     className="relative h-[200px] border border-black rounded-lg mx-4 bg-cover flex items-center justify-center"
@@ -20,4 +20,4 @@ function headerComponent() {
   );
 }
 
-export default headerComponent;
+export default HeaderComponent;
