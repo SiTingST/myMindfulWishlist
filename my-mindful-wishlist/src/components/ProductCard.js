@@ -6,8 +6,7 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 const ProductCard = (props) => {
   let useCustomImageNotFound = true
 
-  const regex = /\.(jpg|jpeg|png)$/i; // The 'i' makes it case insensitive
-  console.log("!regex.test(props.imageLink)", !regex.test(props.imageLink))
+  const regex = /\.(jpg|jpeg|png)$/i; 
   if (regex.test(props.imageLink)) {
     useCustomImageNotFound = false
   }
@@ -17,7 +16,7 @@ const ProductCard = (props) => {
       <div class="relative h-56">
         {useCustomImageNotFound ? (
           <img
-            className="w-full h-full rounded-lg bg-peach"
+            className="object-contain w-full h-full rounded-lg bg-peach"
             src={noImageFound}
             alt="Not Available"
           />
@@ -50,7 +49,7 @@ const ProductCard = (props) => {
               type="button"
             >
               <LocalShippingIcon> </LocalShippingIcon>
-              <span class='ml-1'> Buy </span>
+                <a class='ml-1'  href={props.websiteLink ? props.websiteLink: ""}> Buy</a>
             </button>
           </div>
         </div>

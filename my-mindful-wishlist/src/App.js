@@ -29,7 +29,8 @@ function App() {
           <ProductCard key={index} class="card" 
             title ={card.title}
             price ={card.price} 
-            imageLink = {card.imageLink}/>
+            imageLink = {card.imageLink}
+            websiteLink = {card.websiteLink} />
         ))}
       </div> 
     </div>
