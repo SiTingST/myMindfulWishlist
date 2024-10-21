@@ -30,26 +30,25 @@ const ProductCard = (props) => {
       </div>
       <div class="p-4">
         <p class="mb-2 text-slate-800 font-semibold">
-          {props.title}
+          {props.name}
         </p>
         <div class="flex justify-between" >
           <span class="font-bold text-xl">
-            ${props.price}
+            ${props.price ? props.price : 0}
           </span>
           <div class='flex gap-2'>
             <button
               class="flex items-center rounded-md bg-red-500 px-2 border text-sm text-white hover:shadow-lg"
-              type="button"
+              onClick={() => props.removeItem(props.id)}
             >
               <DeleteOutlineIcon style={{ fontSize: 22 }}> </DeleteOutlineIcon>
               <span class='ml-1'> Remove </span>
             </button>
             <button
               class="flex items-center rounded-md bg-slate-800 px-4 border text-sm text-white hover:shadow-lg"
-              type="button"
             >
-              <LocalShippingIcon> </LocalShippingIcon>
-                <a class='ml-1'  href={props.websiteLink ? props.websiteLink: ""}> Buy</a>
+              <LocalShippingIcon/>
+                <a class='ml-1' href={props.websiteLink ? props.websiteLink: ""}> Buy</a>
             </button>
           </div>
         </div>

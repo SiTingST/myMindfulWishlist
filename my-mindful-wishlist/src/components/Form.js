@@ -8,17 +8,19 @@ const Form = (props) => {
     const imageLinkRef = useRef();
     const notesRef = useRef();
 
+
     // add x button
     const handleSubmit = (e) => {
         e.preventDefault();
         const cardData = {
-            title: nameRef?.current?.value,
+            id: props.totalCardCount + 1,
+            name: nameRef?.current?.value,
             price: priceRef?.current?.value,
             websiteLink: websiteLinkRef?.current?.value,
             imageLink: imageLinkRef?.current?.value,
             notes: notesRef?.current?.value,
         };
-
+        console.log("cardDdata", cardData)
         props.handleAddItems(cardData);
     };
 
