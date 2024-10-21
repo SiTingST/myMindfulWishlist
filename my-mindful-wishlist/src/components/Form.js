@@ -1,5 +1,7 @@
 
 import { useRef } from 'react';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import Tooltip from '@mui/material/Tooltip';
 
 const Form = (props) => {
     const nameRef = useRef();
@@ -36,25 +38,37 @@ const Form = (props) => {
                     <form class="w-full" onSubmit={handleSubmit}>
                         <h1 class="text-xl font-medium mb-6"> Add an item </h1>
                         <div class="mb-6">
-                            <label for="productName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> Name 
-                                <span class="text-red-500">*</span> 
+                            <label for="productName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                Name
+                                <span class="text-red-500">*</span>
                             </label>
                             <input type="text" id="productName" ref={nameRef} class="border block w-full p-2.5 text-sm rounded-lg focus:outline-none focus:shadow-lg" placeholder='Enter item name' required />
                         </div>
                         <div class="mb-6">
-                            <label for="productPrice" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> Price ($) </label>
-                            <input type="text" id="productPrice" ref={priceRef} pattern="^\d+(\.\d+)?$" title="Enter digits only" class="border block w-full p-2.5 text-sm rounded-lg focus:outline-none focus:shadow-lg" placeholder='50' required />
+                            <label for="productPrice" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                Price ($)
+                            </label>
+                            <input type="text" id="productPrice" ref={priceRef} pattern="^\d+(\.\d+)?$" title="Enter digits only" class="border block w-full p-2.5 text-sm rounded-lg focus:outline-none focus:shadow-lg" placeholder='50'/>
                         </div>
                         <div class="mb-6">
-                            <label for="websiteLink" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> Website Link</label>
+                            <label for="websiteLink" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                Website Link
+                            </label>
                             <input type="text" id="websiteLink" ref={websiteLinkRef} class="border block w-full p-2.5 text-sm rounded-lg focus:outline-none focus:shadow-lg" placeholder='https://www.' />
                         </div>
                         <div class="mb-6">
-                            <label for="Image Link" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> Image Link </label>
+                            <label for="Image Link" class="flex items-center mb-2 pr-6 text-sm font-medium text-gray-900 dark:text-white">
+                                Image Link
+                                <Tooltip title="Right-click on the selected image and click 'Copy image address'" followCursor>
+                                    <HelpOutlineIcon className="ml-0.5" fontSize="small" />
+                                </Tooltip>
+                            </label>
                             <input type="text" id="imageLink" ref={imageLinkRef} class="border block w-full p-2.5 text-sm rounded-lg focus:outline-none focus:shadow-lg" placeholder='https://www.' />
                         </div>
                         <div class="mb-6">
-                            <label for="notes" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> Notes </label>
+                            <label for="notes" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                Notes
+                            </label>
                             <input type="text" id="notes" ref={notesRef} class="border block w-full p-2.5 text-sm rounded-lg focus:outline-none focus:shadow-lg" placeholder='I love the design!' />
                         </div>
                         <div class="flex justify-end gap-4">
