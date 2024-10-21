@@ -9,7 +9,8 @@ import Form from './components/Form.js';
 
 function App() {
   const [isFormVisible, setIsFormVisible] = useState(false);
-  
+  const [totalCost, setTotalCost] = useState(0);
+
   const [cards, setCards] = useState(() => {
     const storedCards = localStorage.getItem('items');
     return storedCards ? JSON.parse(storedCards) : [];
@@ -17,6 +18,13 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem('items', JSON.stringify(cards));
+    const totalSum = cards.reduce((accumulator, currentItem) => {
+      return accumulator + Number(currentItem.price);
+    }, 0);
+    
+    console.log("totalPrice", totalSum)
+    
+    setTotalCost(totalSum)
   }, [cards]);
 
   const handleAddItems = (cardData) => {
@@ -35,7 +43,7 @@ function App() {
 
   return (
     <div class="App">
-      <HeaderComponent />
+      <HeaderComponent totalCost={totalCost} />
       {isFormVisible && <Form totalCardCount= {cards.length} handleAddItems={handleAddItems} handleFormVisibility={handleFormVisibility} />}
       <div class='flex flex-row flex-wrap'>
         <AddItemCard handleCardClick ={handleFormVisibility}/>
@@ -46,6 +54,7 @@ function App() {
             price ={card.price} 
             imageLink = {card.imageLink}
             websiteLink = {card.websiteLink}
+            date = {card.date}
             removeItem = {removeItem} />
         ))}
       </div> 

@@ -12,6 +12,11 @@ const Form = (props) => {
     // add x button
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        const today = new Date();
+        const options = { day: '2-digit', month: 'short', year: 'numeric' };
+        const formattedDate = today.toLocaleDateString('en-GB', options);
+
         const cardData = {
             id: props.totalCardCount + 1,
             name: nameRef?.current?.value,
@@ -19,8 +24,8 @@ const Form = (props) => {
             websiteLink: websiteLinkRef?.current?.value,
             imageLink: imageLinkRef?.current?.value,
             notes: notesRef?.current?.value,
+            date: formattedDate,
         };
-        console.log("cardDdata", cardData)
         props.handleAddItems(cardData);
     };
 

@@ -32,6 +32,10 @@ const ProductCard = (props) => {
         <p class="mb-2 text-slate-800 font-semibold">
           {props.name}
         </p>
+        <p class="mb-2  text-sm opacity-50	">
+          {props.date}
+        </p>
+
         <div class="flex justify-between" >
           <span class="font-bold text-xl">
             ${props.price ? props.price : 0}

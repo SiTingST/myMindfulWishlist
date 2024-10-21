@@ -13,7 +13,7 @@ const HeaderComponent = (props) => {
       </div>
       <div className="absolute bottom-4 right-4">
         <p className="text-white text-base">Total Cost</p>
-        <h1 className="text-white">$xx</h1>
+        <h1 className="text-red-500	text-3xl font-semibold">${props.totalCost}</h1>
     </div>
   </div>
 
