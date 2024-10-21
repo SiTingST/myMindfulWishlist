@@ -28,7 +28,7 @@ function App() {
   }, [cards]);
 
   const handleAddItems = (cardData) => {
-    setCards((prevCards) => [cardData, ...prevCards]);
+    setCards([...cards, cardData]);
     handleFormVisibility()
   };
 
@@ -48,13 +48,8 @@ function App() {
       <div class='flex flex-row flex-wrap'>
         <AddItemCard handleCardClick ={handleFormVisibility}/>
         {cards.map((card) => (
-          <ProductCard class="card" 
-            id = {card.id}
-            name ={card.name}
-            price ={card.price} 
-            imageLink = {card.imageLink}
-            websiteLink = {card.websiteLink}
-            date = {card.date}
+          <ProductCard 
+            {...card}
             removeItem = {removeItem} />
         ))}
       </div> 
