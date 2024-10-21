@@ -6,18 +6,17 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 const ProductCard = (props) => {
   let useCustomImageNotFound = true
 
-  const regex = /\.(jpg|jpeg|png)$/i; // The 'i' makes it case insensitive
-  console.log("!regex.test(props.imageLink)", !regex.test(props.imageLink))
+  const regex = /\.(jpg|jpeg|png)$/i;
   if (regex.test(props.imageLink)) {
     useCustomImageNotFound = false
   }
 
   return (
-    <div class="relative flex flex-col m-6 bg-white shadow-sm border border-slate-200 rounded-lg w-96" >
+    <div class="relative flex flex-col m-6 bg-white shadow-sm border border-slate-200 rounded-lg w-96 md:w-80" >
       <div class="relative h-56">
         {useCustomImageNotFound ? (
           <img
-            className="w-full h-full rounded-lg bg-peach"
+            className="object-contain w-full h-full rounded-lg bg-peach"
             src={noImageFound}
             alt="Not Available"
           />
@@ -31,27 +30,30 @@ const ProductCard = (props) => {
       </div>
       <div class="p-4">
         <p class="mb-2 text-slate-800 font-semibold">
-          {props.title}
+          {props.name}
         </p>
+        <p class="mb-2  text-sm opacity-50	">
+          {props.date}
+        </p>
+
         <div class="flex justify-between" >
           <span class="font-bold text-xl">
-            ${props.price}
+            ${props.price ? props.price : 0}
           </span>
           <div class='flex gap-2'>
             <button
               class="flex items-center rounded-md bg-red-500 px-2 border text-sm text-white hover:shadow-lg"
-              type="button"
+              onClick={() => props.removeItem(props.id)}
             >
               <DeleteOutlineIcon style={{ fontSize: 22 }}> </DeleteOutlineIcon>
               <span class='ml-1'> Remove </span>
             </button>
-            <button
+            <a href={props.websiteLink ? props.websiteLink : ""}
               class="flex items-center rounded-md bg-slate-800 px-4 border text-sm text-white hover:shadow-lg"
-              type="button"
             >
-              <LocalShippingIcon> </LocalShippingIcon>
+              <LocalShippingIcon />
               <span class='ml-1'> Buy </span>
-            </button>
+            </a>
           </div>
         </div>
       </div>

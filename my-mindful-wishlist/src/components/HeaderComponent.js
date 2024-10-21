@@ -12,8 +12,8 @@ const HeaderComponent = (props) => {
         <h1 className="text-white font-semibold text-5xl">My Wishlist</h1>
       </div>
       <div className="absolute bottom-4 right-4">
-        <p className="text-white text-base">Total Cost</p>
-        <h1 className="text-white">$xx</h1>
+        <p className="text-white text-sm">Total Cost</p>
+        <h1 className="text-red-500	text-3xl font-semibold">${props.totalCost}</h1>
     </div>
   </div>
 
