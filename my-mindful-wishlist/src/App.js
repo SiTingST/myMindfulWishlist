@@ -21,9 +21,7 @@ function App() {
     const totalSum = cards.reduce((accumulator, currentItem) => {
       return accumulator + Number(currentItem.price);
     }, 0);
-    
-    console.log("totalPrice", totalSum)
-    
+        
     setTotalCost(totalSum)
   }, [cards]);
 
