@@ -6,13 +6,13 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 const ProductCard = (props) => {
   let useCustomImageNotFound = true
 
-  const regex = /\.(jpg|jpeg|png)$/i; 
+  const regex = /\.(jpg|jpeg|png)$/i;
   if (regex.test(props.imageLink)) {
     useCustomImageNotFound = false
   }
 
   return (
-    <div class="relative flex flex-col m-6 bg-white shadow-sm border border-slate-200 rounded-lg w-96" >
+    <div class="relative flex flex-col m-6 bg-white shadow-sm border border-slate-200 rounded-lg w-96 md:w-80" >
       <div class="relative h-56">
         {useCustomImageNotFound ? (
           <img
@@ -44,12 +44,12 @@ const ProductCard = (props) => {
               <DeleteOutlineIcon style={{ fontSize: 22 }}> </DeleteOutlineIcon>
               <span class='ml-1'> Remove </span>
             </button>
-            <button
+            <a href={props.websiteLink ? props.websiteLink : ""}
               class="flex items-center rounded-md bg-slate-800 px-4 border text-sm text-white hover:shadow-lg"
             >
-              <LocalShippingIcon/>
-                <a class='ml-1' href={props.websiteLink ? props.websiteLink: ""}> Buy</a>
-            </button>
+              <LocalShippingIcon />
+              <span class='ml-1'> Buy </span>
+            </a>
           </div>
         </div>
       </div>
