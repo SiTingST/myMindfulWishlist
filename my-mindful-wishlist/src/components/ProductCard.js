@@ -6,7 +6,7 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 const ProductCard = (props) => {
   let useCustomImageNotFound = true
 
-  const regex = /\.(jpg|jpeg|png)$/i;
+  const regex = /\.(jpg|jpeg|png|WebP)$/i;
   if (regex.test(props.imageLink)) {
     useCustomImageNotFound = false
   }
