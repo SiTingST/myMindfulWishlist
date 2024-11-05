@@ -18,7 +18,7 @@ const Form = (props) => {
         const today = new Date();
         const options = { day: '2-digit', month: 'short', year: 'numeric' };
         const formattedDate = today.toLocaleDateString('en-GB', options);
-
+        console.log("props.totalCardCount", props.totalCardCount)
         const cardData = {
             id: props.totalCardCount + 1,
             name: nameRef?.current?.value,

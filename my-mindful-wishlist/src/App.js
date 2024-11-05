@@ -10,10 +10,13 @@ import Form from './components/Form.js';
 function App() {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [totalCost, setTotalCost] = useState(0);
+  const [totalCardsCount, setTotalCardsCount] = useState(0);
 
   const [cards, setCards] = useState(() => {
     const storedCards = localStorage.getItem('items');
-    return storedCards ? JSON.parse(storedCards) : [];
+    const cards = storedCards ? JSON.parse(storedCards) : [];
+    setTotalCardsCount(cards.length);
+    return cards;
   });
 
   useEffect(() => {
@@ -22,11 +25,12 @@ function App() {
       return accumulator + Number(currentItem.price);
     }, 0);
         
-    setTotalCost(totalSum)
+    setTotalCost(totalSum.toFixed(2))
   }, [cards]);
 
   const handleAddItems = (cardData) => {
-    setCards([...cards, cardData]);
+    setCards([cardData, ...cards]);
+    setTotalCardsCount(totalCardsCount + 1)
     handleFormVisibility()
   };
 
@@ -36,13 +40,14 @@ function App() {
 
   const removeItem = (id) => {
     const updatedCards = cards.filter(item => item.id !== id);
+    setTotalCardsCount(updatedCards.length)
     setCards(updatedCards);
   };
 
   return (
     <div class="App">
       <HeaderComponent totalCost={totalCost} />
-      {isFormVisible && <Form totalCardCount= {cards.length} handleAddItems={handleAddItems} handleFormVisibility={handleFormVisibility} />}
+      {isFormVisible && <Form totalCardCount= {totalCardsCount} handleAddItems={handleAddItems} handleFormVisibility={handleFormVisibility} />}
       <div class='flex flex-row flex-wrap'>
         <AddItemCard handleCardClick ={handleFormVisibility}/>
         {cards.map((card) => (
