@@ -20,7 +20,7 @@ const Form = (props) => {
         const formattedDate = today.toLocaleDateString('en-GB', options);
 
         const cardData = {
-            id: props.totalCardCount + 1, 
+            id: props.isEditMode ? props?.selectedCardData?.id : props.totalCardCount + 1, 
             ...formData,
             date: formattedDate,
         };
@@ -58,7 +58,7 @@ const Form = (props) => {
                             <label for="websiteLink" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                 Website Link
                             </label>
-                            <input type="text" id="websiteLink" name="websiteLink" value={formData.websiteLink} class="border block w-full p-2.5 text-sm rounded-lg focus:outline-none focus:shadow-lg" onChange={handleChange}placeholder='https://www.' />
+                            <input type="text" id="websiteLink" name="websiteLink" value={formData.websiteLink} class="border block w-full p-2.5 text-sm rounded-lg focus:outline-none focus:shadow-lg" onChange={handleChange} placeholder='https://www.' />
                         </div>
                         <div class="mb-6">
                             <label for="Image Link" class="flex items-center mb-2 pr-6 text-sm font-medium text-gray-900 dark:text-white">
@@ -67,13 +67,13 @@ const Form = (props) => {
                                     <HelpOutlineIcon className="ml-0.5" fontSize="small" />
                                 </Tooltip>
                             </label>
-                            <input type="text" id="imageLink" name="imageLink" value={formData.imageLink} class="border block w-full p-2.5 text-sm rounded-lg focus:outline-none focus:shadow-lg" placeholder='https://www.' />
+                            <input type="text" id="imageLink" name="imageLink" value={formData.imageLink} class="border block w-full p-2.5 text-sm rounded-lg focus:outline-none focus:shadow-lg" onChange={handleChange} placeholder='https://www.' />
                         </div>
                         <div class="mb-6">
                             <label for="notes" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                 Notes
                             </label>
-                            <input type="text" id="notes" name="notes" value={formData.notes} class="border block w-full p-2.5 text-sm rounded-lg focus:outline-none focus:shadow-lg" placeholder='I love the design!' />
+                            <input type="text" id="notes" name="notes" value={formData.notes} class="border block w-full p-2.5 text-sm rounded-lg focus:outline-none focus:shadow-lg" onChange={handleChange} placeholder='I love the design!' />
                         </div>
                         <div class="flex justify-end gap-4">
                             <button type="submit" class=" bg-green-700 hover:shadow-lg text-white h-10 px-6 rounded-full">

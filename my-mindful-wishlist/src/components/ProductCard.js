@@ -60,7 +60,7 @@ const ProductCard = (props) => {
               <DeleteOutlineIcon style={{ fontSize: 22 }}> </DeleteOutlineIcon>
               <span class='ml-1'> Remove </span>
             </button>
-            <a href={props.websiteLink ? props.websiteLink : ""}
+            <a href={props.websiteLink ? props.websiteLink : ""} onClick= {(e) => e.stopPropagation()}
               class="flex items-center rounded-md bg-slate-800 px-4 border text-sm text-white hover:shadow-lg"
             >
               <LocalShippingIcon />
