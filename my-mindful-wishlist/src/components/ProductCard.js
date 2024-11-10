@@ -11,8 +11,21 @@ const ProductCard = (props) => {
     useCustomImageNotFound = false
   }
 
+  const handleCardClick = () => {
+    const { id, imageLink, name, websiteLink, notes, price} = props;
+    props.handleSetEditMode()
+    props.handleFormVisibility()
+    const cardData = { id, imageLink, name, websiteLink, notes, price };
+    props.setSelectedCardData(cardData)
+  }
+
+  const handleRemoveButtonClick = (e) => {
+    e.stopPropagation()
+    props.removeItem(props.id)
+  }
+  
   return (
-    <div class="relative flex flex-col m-6 bg-white shadow-sm border border-slate-200 rounded-lg w-96 md:w-80" >
+    <div class="relative flex flex-col m-6 bg-white shadow-sm border border-slate-200 rounded-lg w-96 md:w-80 cursor-pointer" onClick={() => handleCardClick()} >
       <div class="relative h-56">
         {useCustomImageNotFound ? (
           <img
@@ -42,12 +55,12 @@ const ProductCard = (props) => {
           <div class='flex gap-2'>
             <button
               class="flex items-center rounded-md bg-red-500 px-2 border text-sm text-white hover:shadow-lg"
-              onClick={() => props.removeItem(props.id)}
+              onClick={handleRemoveButtonClick}
             >
               <DeleteOutlineIcon style={{ fontSize: 22 }}> </DeleteOutlineIcon>
               <span class='ml-1'> Remove </span>
             </button>
-            <a href={props.websiteLink ? props.websiteLink : ""}
+            <a href={props.websiteLink ? props.websiteLink : ""} onClick= {(e) => e.stopPropagation()}
               class="flex items-center rounded-md bg-slate-800 px-4 border text-sm text-white hover:shadow-lg"
             >
               <LocalShippingIcon />
