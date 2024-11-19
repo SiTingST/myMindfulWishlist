@@ -7,7 +7,6 @@ const Form = (props) => {
     name: props?.selectedCardData?.name || "",
     price: props?.selectedCardData?.price || "",
     websiteLink: props?.selectedCardData?.websiteLink || "",
-    phone: props?.selectedCardData?.phone || "",
     imageLink: props?.selectedCardData?.imageLink || "",
     notes: props?.selectedCardData?.notes || "",
   });
@@ -41,7 +40,7 @@ const Form = (props) => {
   };
 
   return (
-    <div className="relative z-10" aria-modal="true">
+    <div className="relative z-20" aria-modal="true">
       <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center">
         <div className=" max-w-[50%] w-full mx-auto flex items-center p-8 justify-center rounded-xl border border-slate-100 bg-white">
           <form className="w-full" onSubmit={handleSubmit}>
