@@ -1,4 +1,5 @@
-import HeaderComponent from "./components/HeaderComponent.js";
+import Header from "./components/Header.js";
+import BannerComponent from "./components/BannerComponent.js";
 import AddItemCard from "./components/AddItemCard.js";
 import ProductCard from "./components/ProductCard.js";
 import { useState, useEffect } from "react";
@@ -71,8 +72,9 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <HeaderComponent totalCost={totalCost} />
+    <div className="App bg-white">
+      <Header> </Header>
+      <BannerComponent totalCost={totalCost} />
       {isFormVisible && (
         <Form
           totalCardCount={totalCardsCount}

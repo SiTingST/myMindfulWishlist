@@ -7,7 +7,7 @@ module.exports = {
         peach: '#fef9f8',
       },
       fontFamily: {
-        sans: ['"Inter"', 'sans-serif'],
+        inter: ['"Inter"', 'sans-serif'],
       },
     },
   },
