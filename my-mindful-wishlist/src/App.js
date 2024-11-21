@@ -1,16 +1,15 @@
-import Wishlist from "./components/Wishlist.js";
-import Header from "./components/Header.js";
-
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import TopNavBar from "./components/TopNavBar.js";
+import { Outlet } from 'react-router-dom';
 
 import "./App.css";
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-      <Header> </Header>
-      <Wishlist> </Wishlist>   
-    </div>
+      <>
+        <TopNavBar />
+        <Outlet />
+      </>
   );
-}
+};
 
 export default App;
