@@ -3,7 +3,7 @@ import AddIcon from "@mui/icons-material/Add";
 const AddItemCard = (props) => {
   return (
     <div
-      className="flex flex-col justify-center m-6 border rounded-lg w-96 min-h-80 bg-black cursor-pointer"
+      className="flex flex-col justify-center m-6 border rounded-lg w-80 min-h-80 bg-black cursor-pointer"
       onClick={props.handleCardClick}
     >
       <div className="flex flex-col items-center">
