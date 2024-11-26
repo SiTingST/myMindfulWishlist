@@ -46,12 +46,12 @@ const ProductCard = (props) => {
   };
 
   return (
-    <div className="relative flex flex-col m-6 bg-white shadow-sm border border-slate-200 rounded-lg w-96 md:w-80 cursor-pointer" onClick={() => handleCardClick()}>
+    <div className="relative flex flex-col m-6 bg-white shadow-sm border border-slate-200 rounded-lg w-80 min-h-80 cursor-pointer" onClick={() => handleCardClick()}>
       {dayDifference > 0 && (
         <div className="absolute inset-0 bg-gray-800 bg-opacity-70 flex justify-center items-center z-10 rounded-lg">
           <div className="text-center text-white">
             <p font-black> {dayDifference} Days Left</p>
-            <button className="bg-black mt-3 hover:bg-slate-600 text-white font-bold py-2 px-4 border  rounded"> Unlock </button>
+            <button className="bg-black mt-3 hover:bg-slate-600 text-white font-bold py-2 px-4 border rounded"> Unlock </button>
           </div>
         </div>
       )}
