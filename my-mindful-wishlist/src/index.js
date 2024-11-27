@@ -8,7 +8,7 @@ import "./index.css";
 import App from "./App";
 import OurStory from "./components/OurStory";
 import reportWebVitals from "./reportWebVitals";
-import Wishlist from "./components/Wishlist";
+import MainPage from "./components/MainPage";
 
 const router = createBrowserRouter([
   {
@@ -17,7 +17,7 @@ const router = createBrowserRouter([
       children: [
           {
               path: '/',
-              element: <Wishlist />,
+              element: <MainPage />,
           },
           {
               path: "/our-story",

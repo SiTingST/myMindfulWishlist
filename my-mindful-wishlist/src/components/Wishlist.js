@@ -5,10 +5,9 @@ import Form from ".//Form.js";
 
 import { useState, useEffect } from "react";
 
-const Wishlist = () =>  {
+const Wishlist = (props) =>  {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
-  const [totalCost, setTotalCost] = useState(0);
   const [totalCardsCount, setTotalCardsCount] = useState(0);
   const [selectedCardData, setSelectedCardData] = useState(null);
 
@@ -25,7 +24,7 @@ const Wishlist = () =>  {
       return accumulator + Number(currentItem.price);
     }, 0);
 
-    setTotalCost(totalSum.toFixed(2));
+    props.setTotalCost(totalSum.toFixed(2));
   }, [cards]);
 
   const handleAddItems = (cardData) => {
@@ -71,7 +70,6 @@ const Wishlist = () =>  {
 
   return (
     <div>
-      <BannerComponent totalCost={totalCost} />
       {isFormVisible && (
         <Form
           totalCardCount={totalCardsCount}
