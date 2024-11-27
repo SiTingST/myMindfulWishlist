@@ -1,6 +1,9 @@
 import noImageFound from "../images/noImageAvailable.png";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+
+
+
 import { useState, useEffect } from "react";
 
 const ProductCard = (props) => {
@@ -48,13 +51,21 @@ const ProductCard = (props) => {
   return (
     <div className="relative flex flex-col m-6 bg-white shadow-sm border border-slate-200 rounded-lg w-80 min-h-80 cursor-pointer" onClick={() => handleCardClick()}>
       {dayDifference > 0 && (
-        <div className="absolute inset-0 bg-gray-800 bg-opacity-70 flex justify-center items-center z-10 rounded-lg">
-          <div className="text-center text-white">
-            <p font-black> {dayDifference} Days Left</p>
-            <button className="bg-black mt-3 hover:bg-slate-600 text-white font-bold py-2 px-4 border rounded"> Unlock </button>
+        <div className="absolute inset-0 bg-gray-800 bg-opacity-70 z-10 rounded-lg ">
+          <button
+            onClick={handleRemoveButtonClick}
+          >
+            <DeleteOutlineIcon style={{ fontSize: 22, position: 'absolute', top: 6, right: 6, color: "white" }} />
+          </button>
+          <div className="flex justify-center items-center h-full text-center text-white">
+            <div>
+              <p> {dayDifference} Days Left</p>
+              <button className="bg-black mt-3 hover:bg-slate-600 text-white font-bold py-2 px-4 border rounded">
+                Unlock
+              </button>
+            </div>
           </div>
-        </div>
-      )}
+        </div>)}
       <div className="relative h-56">
         {useCustomImageNotFound ? (
           <img
