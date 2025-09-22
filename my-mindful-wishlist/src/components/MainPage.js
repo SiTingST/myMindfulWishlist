@@ -11,6 +11,8 @@ const MainPage = () =>  {
     <div>
       <BannerComponent totalCost={totalCost} />
       <Wishlist setTotalCost={setTotalCost}></Wishlist>
+      <a href="https://www.wonderspace.app/"></a>
+
     </div>   
   );
 }
